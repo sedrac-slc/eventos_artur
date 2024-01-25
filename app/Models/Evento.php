@@ -11,11 +11,11 @@ class Evento extends Model
     use HasFactory, HasUuids;
 
     protected $fillable = [
-        'id', 'nome', 'data_comeco', 'data_termino'
+        'id', 'tipo_evento_id', 'nome', 'data_comeco', 'data_termino'
     ];
 
-    public function consultations(){
-        return $this->hasMany(Consultation::class);
+    public function tipo_evento(){
+        return $this->hasOne(TipoEvento::class);
     }
 
 }

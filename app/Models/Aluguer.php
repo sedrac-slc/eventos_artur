@@ -11,7 +11,7 @@ class Aluguer extends Model
     use HasFactory, HasUuids;
 
     protected $fillable = [
-        'id','nome', 'quantidade'
+        'id','evento_id','material_id', 'quantidade'
     ];
 
 }

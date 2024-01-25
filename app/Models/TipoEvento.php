@@ -11,11 +11,11 @@ class TipoEvento extends Model
     use HasFactory, HasUuids;
 
     protected $fillable = [
-        'id','tipo_evento_id','nome','preco'
+        'id','nome','preco'
     ];
 
-    public function materias(){
-        return $this->hasMany(Material::class);
+    public function eventos(){
+        return $this->hasMany(Evento::class);
     }
 
 }

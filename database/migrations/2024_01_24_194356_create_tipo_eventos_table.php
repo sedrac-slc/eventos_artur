@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('tipo_eventos', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('nome')->unique();
-            $table->decimal('preco')->unsigned()->default(0.0);
             $table->timestamps();
         });
     }

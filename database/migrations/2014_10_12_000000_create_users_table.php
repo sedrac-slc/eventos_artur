@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('birthday');
             $table->string('phone')->unique();
             $table->enum('gender',['FEMALE','MALE']);
-            $table->enum('type',[UserTypeEnum::USER, UserTypeEnum::ADMIN]);
+            $table->enum('type',UserTypeEnum::keys());
             $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();

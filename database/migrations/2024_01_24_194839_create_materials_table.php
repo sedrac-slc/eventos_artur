@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('nome')->unique();
             $table->integer('quantidade')->default(0)->unsigned();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
