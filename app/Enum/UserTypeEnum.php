@@ -7,7 +7,7 @@ class UserTypeEnum{
     const CLIENT = "CLIENT";
 
     static function keys() : array{
-        return array_keys(static::keys());
+        return array_keys(static::values());
     }
 
     static function values(): array{

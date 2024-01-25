@@ -7,7 +7,7 @@
         </a>
     </div>
     <main class="d-flex justify-content-center align-items-center h-full bg-dark">
-        <form action="POST" action="{{ route('login') }}" class="w-50 border rounded p-4 bg-light">
+        <form method="POST" action="{{ route('login') }}" class="w-50 border rounded p-4 bg-light">
             @csrf
             <div class="fs-2">
                 <i class="fa-solid fa-circle-user"></i>

@@ -1,3 +1,15 @@
+:root{
+    --h-nav: 3.5rem;
+}
+
 .h-full {
     height: 100vh !important;
+}
+
+.h-nav{
+    height: var(--h-nav) !important;
+}
+
+.h-body{
+    padding-top: calc(var(--h-nav) + 3rem);
 }

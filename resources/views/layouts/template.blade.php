@@ -10,7 +10,7 @@
     @yield('link')
     <title>{{ $title ?? 'Document' }}</title>
 </head>
-<body>
+<body class="bg-light">
     @yield('content')
     @yield('script')
     <script src="{{ url('js/all.min.js') }}"></script>

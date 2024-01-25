@@ -7,7 +7,7 @@
         @include('components.input-email',['name'=>'email','text'=>'Digita o seu email:'])
     </div>
     <div class="col-md-6">
-        @include('components.input-text',['name'=>'photo','text'=>'Digita o seu contacto:','icon'=>'fa-solid fa-phone'])
+        @include('components.input-text',['name'=>'phone','text'=>'Digita o seu contacto:','icon'=>'fa-solid fa-phone'])
     </div>
     <div class="col-md-6">
         @include('components.input-date',['name'=>'birthday','text'=>'Digita o seu aniversário:'])
@@ -22,7 +22,7 @@
         @switch($type)
             @case(UserTypeEnum::CLIENT)
             @case(UserTypeEnum::ADMIN)
-                    @include('components.input-hidden',['id'=>'type','name'=>'type', 'value' => $type])
+                    @include('components.input-hidden',['name'=>'type', 'value' => $type])
                 @break
             @default
         @endswitch
