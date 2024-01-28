@@ -16,4 +16,12 @@ class MaterialTipoEvento extends Model
         'id','tipo_evento_id', 'material_id', 'preco'
     ];
 
+    public function tipo_evento(){
+        return $this->belongsTo(TipoEvento::class,'tipo_evento_id','id');
+    }
+
+    public function material(){
+        return $this->belongsTo(Material::class,'material_id','id');
+    }
+
 }

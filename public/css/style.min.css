@@ -1,5 +1,8 @@
 :root{
     --h-nav: 3.5rem;
+    --dim-m: 30px;
+    --dim: 50px;
+    --dim-p: 90px;
 }
 
 .h-full {
@@ -11,5 +14,33 @@
 }
 
 .h-body{
-    padding-top: calc(var(--h-nav) + 3rem);
+    padding-top: calc(var(--h-nav) + 1rem);
+}
+
+.btn-none{
+    border: none !important;
+    background: none !important;
+}
+
+.img-tab, .img-tab-min, .img-perfil{
+    border-radius: 50%;
+}
+
+.img-tab{
+    height: var(--dim);
+    width: var(--dim);
+}
+
+.img-tab-min{
+    height: var(--dim-m);
+    width: var(--dim-m);
+}
+
+.img-perfil{
+    height: var(--dim-p);
+    width: var(--dim-p);
+}
+
+.pb-tab{
+    padding-bottom: 1rem !important;
 }

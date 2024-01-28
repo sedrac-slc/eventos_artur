@@ -3,7 +3,7 @@
     <span>{{ $text }}</span>
 </label>
 <select class="form-select" name="{{ $name }}" value="{{ $value ?? '' }}" id="{{ $name }}">
-    @foreach ($options as $key => $value)
-        <option value="{{ $key }}"> {{ $value }}</option>
+    @foreach ($options as $key => $text)
+        <option value="{{ $key }}" @if($key == $value) selected @endif> {{ $text }}</option>
     @endforeach
 </select>

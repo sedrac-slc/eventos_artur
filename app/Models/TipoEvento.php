@@ -18,4 +18,8 @@ class TipoEvento extends Model
         return $this->hasMany(Evento::class);
     }
 
+    public function materialTipoEventos(){
+        return $this->hasMany(MaterialTipoEvento::class);
+    }
+
 }

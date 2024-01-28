@@ -12,8 +12,8 @@
 </head>
 <body class="bg-light">
     @yield('content')
-    @yield('script')
     <script src="{{ url('js/all.min.js') }}"></script>
     <script src="{{ url('js/bootstrap.bundle.min.js') }}"></script>
+    @yield('script')
 </body>
 </html>

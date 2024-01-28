@@ -11,11 +11,11 @@ class Material extends Model
     use HasFactory, HasUuids;
 
     protected $fillable = [
-        'id','nome', 'quantidade'
+        'id','nome', 'quantidade', 'image'
     ];
 
-    public function tipo_evento(){
-        return $this->hashOne(TipoEvento::class);
+    public function materialTipoEventos(){
+        return $this->hasMany(MaterialTipoEvento::class);
     }
 
 }

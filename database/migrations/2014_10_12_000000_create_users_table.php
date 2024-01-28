@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Enum\UserTypeEnum;
+use App\Enum\UserGenderEnum;
 
 return new class extends Migration
 {
@@ -20,7 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->date('birthday');
             $table->string('phone')->unique();
-            $table->enum('gender',['FEMALE','MALE']);
+            $table->enum('gender',UserGenderEnum::keys());
             $table->enum('type',UserTypeEnum::keys());
             $table->string('image')->nullable();
             $table->rememberToken();

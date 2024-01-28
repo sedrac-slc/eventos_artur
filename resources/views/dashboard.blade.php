@@ -1,50 +1,105 @@
+@php use App\Enum\UserTypeEnum; @endphp
+@php use App\Enum\UserGenderEnum; @endphp
 @extends('layouts.dash')
 @section('body')
-<div class="accordion accordion-flush" id="accordionFlushExample">
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
-            <i class="fa-solid fa-circle-info"></i>
-            <span>Apresentação</span>
-          </button>
-        </h2>
-        <div id="flush-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushExample" style="">
-          <div class="accordion-body">
-            <div class="m-2 p-2 bg-dark rounded">
-                <div class="d-flex gap-1">
-                    <div class="">
-
+    <section class="bg-dark rounded text-white p-3">
+        <div class="row text-center">
+            <div class="col-md-2">
+                @isset(auth()->user()->image)
+                    <img src="{{ url('storage/' . auth()->user()->image) }}" alt="" class="img-perfil">
+                @else
+                @endisset
+            </div>
+            <div class="col-md-10">
+                <div class="row h-100">
+                    <div class="col-md-4 p-2">
+                        <i class="fa-solid fa-audio-description"></i>
+                        <strong>Nome:</strong>
+                        <span>{{ auth()->user()->name }}</span>
                     </div>
-                    <div class="text-white">
-                        <div class="">{{ auth()->user()->name }}</div>
-                        <div class="">{{ auth()->user()->email }}</div>
+                    <div class="col-md-4 p-2">
+                        <i class="fa-solid fa-envelope"></i>
+                        <strong>Email:</strong>
+                        <span>{{ auth()->user()->email }}</span>
+                    </div>
+                    <div class="col-md-4 p-2">
+                        <i class="fa-solid fa-phone"></i>
+                        <strong>Telemovel:</strong>
+                        <span>{{ auth()->user()->phone }}</span>
+                    </div>
+                    <div class="col-md-4 p-2">
+                        <i class="fa-solid fa-venus-mars"></i>
+                        <strong>Gênero:</strong>
+                        <span>{{ UserGenderEnum::values()[auth()->user()->gender] }}</span>
+                    </div>
+                    <div class="col-md-4 p-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <strong>Data nascimento:</strong>
+                        <span>{{ auth()->user()->birthday }}</span>
+                    </div>
+                    <div class="col-md-4 p-2">
+                        <i class="fa-solid fa-user-tie"></i>
+                        <strong>Cargo:</strong>
+                        <span>{{ UserTypeEnum::values()[auth()->user()->type] }}</span>
                     </div>
                 </div>
             </div>
-          </div>
         </div>
-      </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-            <i class="fa-solid fa-circle-info"></i>
-            <span>Editar dados pessoais</span>
-        </button>
-      </h2>
-      <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-            <i class="fa-solid fa-circle-info"></i>
-            <span>Alterar palavra-passe</span>
-        </button>
-      </h2>
-      <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-      </div>
-    </div>
-  </div>
+    </section>
+    <section class="row mt-4">
+        <div class="col-md-4 p-2">
+            @include('components.card', [
+                'title' => 'Usuarios',
+                'icon' => 'fa-solid fa-users',
+                'text' => 'Gerenciamento de todos usuários da plataforma',
+                'route' => route('users.index'),
+                'bg' => 'bg-primary',
+            ])
+        </div>
+        <div class="col-md-4 p-2">
+            @include('components.card', [
+                'title' => 'Materías',
+                'icon' => 'fa-solid fa-tools',
+                'text' => 'Gerenciamento de todos materías para eventos',
+                'route' => route('materials.index'),
+                'bg' => 'bg-warning',
+            ])
+        </div>
+        <div class="col-md-4 p-2">
+            @include('components.card', [
+                'title' => 'Tipos Eventos',
+                'icon' => 'fa-solid fa-edit',
+                'text' => 'Gerenciamento de todos os tipos eventos da plataforma',
+                'route' => route('type-events.index'),
+                'bg' => 'bg-success',
+            ])
+        </div>
+        <div class="col-md-4 p-2">
+            @include('components.card', [
+                'title' => 'Eventos',
+                'icon' => 'fa-solid fa-champagne-glasses',
+                'text' => 'Gerenciamento de todos eventos da plataforma',
+                'route' => route('events.index'),
+                'bg' => 'bg-info',
+            ])
+        </div>
+        <div class="col-md-4 p-2">
+            @include('components.card', [
+                'title' => 'Preços',
+                'icon' => 'fa-solid fa-money-bill',
+                'text' => 'Gerenciamento dos preços do material consoante o tipo de evento',
+                'route' => route('material-type-events.index'),
+                'bg' => 'bg-secondary',
+            ])
+        </div>
+        <div class="col-md-4 p-2">
+            @include('components.card', [
+                'title' => 'Aluguer',
+                'icon' => 'fa-solid fa-circle-info',
+                'text' => 'Gerenciamento de todos aluguer da plataforma',
+                'route' => route('aluguers.index'),
+                'bg' => 'bg-danger',
+            ])
+        </div>
+    </section>
 @endsection

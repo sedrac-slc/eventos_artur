@@ -14,4 +14,12 @@ class Aluguer extends Model
         'id','evento_id','material_id', 'quantidade'
     ];
 
+    public function evento(){
+        return $this->belongsTo(Evento::class,'evento_id','id');
+    }
+
+    public function material(){
+        return $this->belongsTo(Material::class,'material_id','id');
+    }
+
 }

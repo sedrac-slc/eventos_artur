@@ -4,4 +4,4 @@
     @endisset
     <span>{{ $text }}</span>
 </label>
-<input type="{{ $type }}" class="form-control" name="{{ $name }}" value="{{ $value }}" id="{{ $name }}">
+<input type="{{ $type }}" class="form-control" name="{{ $name }}" value="{{ $value }}" id="{{ $name }}" @isset($disabled) disabled @endisset>

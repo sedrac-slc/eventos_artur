@@ -10,12 +10,14 @@ class Evento extends Model
 {
     use HasFactory, HasUuids;
 
+    protected $table = "eventos";
+
     protected $fillable = [
         'id', 'tipo_evento_id', 'nome', 'data_comeco', 'data_termino'
     ];
 
     public function tipo_evento(){
-        return $this->hasOne(TipoEvento::class);
+        return $this->belongsTo(TipoEvento::class,'tipo_evento_id','id');
     }
 
 }

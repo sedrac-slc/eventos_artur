@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
         $userTwo = User::create([
             'name' => "Bela Gomes", 'email' => "belagomes@gmail.com", 'password' => bcrypt('12345678'),
             'birthday' => '1999-06-21', 'phone' => '913769344', 'gender' => 'FEMALE',
-            'type' => UserTypeEnum::USER
+            'type' => UserTypeEnum::CLIENT
         ]);
 
         $tipoArtistico =  TipoEvento::create(["nome" => "Artístico"]);
